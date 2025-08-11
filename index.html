@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <!-- VIKTIG for mobilvennlighet: Sørger for at siden skalerer riktig på alle enheter -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bropunkt | Veiledning og Støttetjenester</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            /* Justert høyde for bedre visning på mobil */
+            height: 280px; 
+            max-height: 300px;
+        }
+        /* For større skjermer (nettbrett og oppover) kan vi ha høyere diagrammer */
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .flowchart-node {
+            border: 2px solid;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flowchart-connector {
+            width: 2px;
+            margin: 0.5rem auto;
+            background-color: currentColor;
+        }
+        .icon-symbol {
+            font-size: 2.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header-seksjon -->
+    <header class="bg-[#264653] text-white p-8 text-center shadow-lg">
+        <!-- Responsiv tekststørrelse: Større på medium skjermer (md) og oppover -->
+        <h1 class="text-4xl md:text-5xl font-bold mb-2">Bropunkt</h1>
+        <p class="text-lg md:text-xl text-[#E9C46A]">Profesjonell Veiledning og Støttetjenester</p>
+    </header>
+
+    <!-- Hovedinnhold -->
+    <main class="container mx-auto p-4 md:p-8">
+        <section id="intro" class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl font-bold text-[#2A9D8F] mb-4">Bygger Broer for Barn, Unge og Familier</h2>
+            <p class="max-w-3xl mx-auto text-lg text-gray-600">
+                Bropunkt tilbyr profesjonell veiledning, støttetjenester og tilsynsoppdrag. Vårt mål er å skape trygghet og bygge relasjoner med en kulturelt sensitiv tilnærming, spesielt rettet mot familier med krysskulturell bakgrunn.
+            </p>
+        </section>
+
+        <!-- Responsivt rutenett: 1 kolonne på mobil, 2 på medium, 3 på store skjermer -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Kompetanse-kort som strekker seg over hele bredden -->
+            <div class="md:col-span-2 lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-center text-[#264653] mb-6">Vår Kompetanse</h3>
+                <!-- Rutenett for ikoner: 1 kolonne på mobil, 3 på små skjermer (sm) og oppover -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="icon-symbol text-[#E76F51]">🎓</div>
+                        <h4 class="font-bold mt-2">Master i Samfunn og Helse</h4>
+                        <p class="text-sm text-gray-600">Utdannet ved Universitetet i Sørøst-Norge (USN), med faglig tyngde i veiledning.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="icon-symbol text-[#F4A261]">👥</div>
+                        <h4 class="font-bold mt-2">Kulturell Sensitivitet</h4>
+                        <p class="text-sm text-gray-600">Erfaring med samtalearbeid og familieveiledning med dyp forståelse for krysskulturelle familier.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="icon-symbol text-[#E9C46A]">🧩</div>
+                        <h4 class="font-bold mt-2">Spesialisert Erfaring</h4>
+                        <p class="text-sm text-gray-600">Kompetanse på veiledning for enslige somaliske mødre med barn med autisme.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tjenester-introduksjon -->
+            <div class="lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-center text-[#264653] mb-6">Våre Tjenester</h3>
+                <p class="text-center max-w-2xl mx-auto text-gray-600 mb-8">Vi tilbyr et spekter av tjenester designet for å gi målrettet og effektiv støtte der det trengs mest. Hvert oppdrag utføres med høy etisk bevissthet og respekt for barnevernloven.</p>
+            </div>
+
+            <!-- Tjenestekort 1: Tilsynstjenester -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+                <h4 class="text-xl font-bold text-center text-[#2A9D8F] mb-4">Tilsynstjenester</h4>
+                <p class="text-center text-gray-600 mb-6 flex-grow">Strukturert og trygghetsskapende oppfølging etter vedtak fra barnevernet.</p>
+                <div class="text-[#2A9D8F]">
+                    <div class="flowchart-node border-[#2A9D8F]">Tilsyn i Hjemmet</div>
+                    <div class="flowchart-connector"></div>
+                    <div class="flowchart-node border-[#2A9D8F]">Tilsyn ved Samvær</div>
+                    <div class="flowchart-connector"></div>
+                    <div class="flowchart-node border-[#2A9D8F]">Miljøterapeutisk Støtte</div>
+                </div>
+            </div>
+
+            <!-- Tjenestekort 2: Veiledning -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+                <h4 class="text-xl font-bold text-center text-[#E76F51] mb-4">Minoritetsfamilie Veiledning</h4>
+                <p class="text-center text-gray-600 mb-6 flex-grow">Vår veiledning bygger på to likeverdige pilarer for å sikre en helhetlig og respektfull tilnærming.</p>
+                <div class="chart-container">
+                    <canvas id="minorityGuidanceChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Tjenestekort 3: Forebyggende Arbeid -->
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col">
+                <h4 class="text-xl font-bold text-center text-[#F4A261] mb-4">Forebyggende Arbeid med Ungdom</h4>
+                <p class="text-center text-gray-600 mb-6 flex-grow">Vi fokuserer på kjerneområder for å styrke ungdommers ressurser og forebygge utfordringer.</p>
+                <div class="chart-container">
+                    <canvas id="youthWorkChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Siste seksjon om ADHD -->
+            <div class="md:col-span-2 lg:col-span-3 bg-white p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-bold text-center text-[#E9C46A] mb-6">ADHD og Psykisk Veiledning</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="border-l-4 border-[#E9C46A] bg-yellow-50 p-4 rounded-r-lg">
+                        <h5 class="font-bold">Veiledning for Foreldre</h5>
+                        <p class="text-sm text-gray-600">Verktøy og strategier for å håndtere utfordringer knyttet til ADHD og autisme.</p>
+                    </div>
+                    <div class="border-l-4 border-[#E9C46A] bg-yellow-50 p-4 rounded-r-lg">
+                        <h5 class="font-bold">Individuell Veiledning</h5>
+                        <p class="text-sm text-gray-600">Trygge samtaletilbud tilpasset barn og ungdoms unike behov.</p>
+                    </div>
+                    <div class="border-l-4 border-[#E9C46A] bg-yellow-50 p-4 rounded-r-lg">
+                        <h5 class="font-bold">Spesialisert Veiledning</h5>
+                        <p class="text-sm text-gray-600">Unikt tilbud for enslige somaliske mødre med barn med autisme.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#264653] text-white mt-12 md:mt-16 p-8 text-center">
+        <h3 class="text-2xl font-bold mb-4">Interessert i et samarbeid?</h3>
+        <p class="mb-4">Ta kontakt for en uforpliktende samtale.</p>
+        <div class="font-semibold">
+            <p>Shukri Aseyr</p>
+            <p>Tlf: 915 25 200</p>
+            <p>E-post: AseyrShukri@gmail.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funksjon for å dele lange etiketter i diagrammer over flere linjer
+        function processLabel(label) {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        }
+
+        // Funksjon for å vise hele etiketten i tooltip
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        // Fargepalett for et konsistent design
+        const brilliantBluesPalette = {
+            darkGreen: '#264653',
+            teal: '#2A9D8F',
+            yellow: '#E9C46A',
+            sandyBrown: '#F4A261',
+            burntSienna: '#E76F51'
+        };
+
+        // Doughnut-diagram for minoritetsveiledning
+        const ctxMinority = document.getElementById('minorityGuidanceChart').getContext('2d');
+        new Chart(ctxMinority, {
+            type: 'doughnut',
+            data: {
+                labels: ['Familieveiledning', 'Kulturelt Sensitiv Tilnærming'],
+                datasets: [{
+                    label: 'Fokusområder',
+                    data: [50, 50],
+                    backgroundColor: [
+                        brilliantBluesPalette.burntSienna,
+                        brilliantBluesPalette.sandyBrown,
+                    ],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        // Søylediagram for arbeid med ungdom
+        const ctxYouth = document.getElementById('youthWorkChart').getContext('2d');
+        new Chart(ctxYouth, {
+            type: 'bar',
+            data: {
+                labels: ['Mestring', 'Identitet', 'Tilknytning'],
+                datasets: [{
+                    label: 'Fokusområder for Ungdom',
+                    data: [85, 90, 75],
+                    backgroundColor: [
+                        brilliantBluesPalette.sandyBrown,
+                        brilliantBluesPalette.yellow,
+                        brilliantBluesPalette.teal,
+                    ],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        display: false
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
